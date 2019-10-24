@@ -1,0 +1,39 @@
+<!-- Main/Home Page -->
+{% extends "base.html" %}
+
+{% block content %}
+
+<a href='/index' style='margin-right: 10px;'>Home</a>
+<!-- <a href='/blogs' style='margin-right: 10px;'>Main Blog Page</a> -->
+<a href='/newpost' style='margin-right: 10px;'>Create New Entry</a>
+<a href='/login' style='margin-right: 10px;'>Login</a>
+<a href='/signup'>SignUp</a>
+
+<br><br>
+
+<h1 style="text-align: center; color:blueviolet;">Unreasonable Happiness Blogz (Main)</h1>
+
+<h2>Blogz Users</h2>
+
+<hr />
+
+{% if users|length == 0 %}
+
+<p>No users yet</p>
+
+{% else %}
+
+{% endif %}
+
+<ul style="list-style: none;">
+
+    {% for user in users %}
+
+    <li><strong><a href='blogs?user={{user.id}}'>{{user.username}}</a></strong>
+    </li>
+
+    <hr />
+    {% endfor %}
+</ul>
+
+{% endblock %}

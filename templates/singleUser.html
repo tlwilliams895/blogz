@@ -1,0 +1,59 @@
+<!-- SingleUser Page - Used to display only the blogs associated with a single given author -->
+{% extends "base.html" %}
+
+{% block content %}
+
+<a href='/index' style='margin-right: 10px;'>Home</a>
+<a href='/newpost' style='margin-right: 10px;'>Create New Entry</a>
+<a href='/login' style='margin-right: 10px;'>Login</a>
+<a href='/signup'>SignUp</a>
+
+<br><br>
+
+<h1 style="text-align: center; color:#31e22b;">Unreasonable Happiness Blogz (User)</h1>
+
+{% if not myblog %}
+
+<h2>Unreasonable Happiness-Blogz Post(SU)</h2>
+
+<hr />
+
+{% if blogs|length == 0 %}
+
+<p style='text-align: center; color: #eeab1b;'>No blog posts/book reviews added yet!</p>
+
+{% else %}
+
+{% endif %}
+
+<ul style="list-style: none;">
+
+    {% for blog in blogs %}
+
+    <li><strong><a href='blogs?id={{blog.id}}'>{{blog.name}}</a></strong>
+
+        <br>
+        {{blog.body}}
+
+    </li>
+
+    <hr />
+    {% endfor %}
+
+</ul>
+{% endif %}
+
+{% if myblog %}
+
+<h2>{{myblog.name}}</h2>
+<p>{{myblog.body}}</p>
+
+{% endif %}
+{% endblock %}
+
+<!--
+    We will also add a singleUser.html template that will be used to display only the blogs 
+    associated with a single given author. It will be used when we dynamically generate a page 
+    using a GET request with a user query parameter on the /blog route (similar to how we 
+    dynamically generated individual blog entry pages in the last assignment).
+-->

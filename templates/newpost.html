@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<a href='/index' style='margin-right: 10px;'>Home Page</a>
+<!-- <a href='/blogs' style='margin-right: 10px;'>Main Blog Page</a> -->
+<a href='/newpost' style='margin-right: 10px;'>Create New Entry</a>
+<a href='/login' style='margin-right: 10px;'>Login</a>
+<a href='/signup'>Sign-Up</a>
+
+<br><br>
+
+<h1 style='text-align: center; color: #2b5ce2;'>*Unreasonable Happiness Blogz*</h1>
+
+<hr />
+
+<form action="/newpost" method='POST'>
+    <label>
+        New Blogz Entry:
+        <br><br>
+        <input type="text" name='blog' placeholder="Enter Blog Title" value='{{blog_title}}' />
+    </label>
+
+    <span class="error">{{title_error}}</span>
+
+    <label>
+        <br><br>
+        <textarea rows="20" cols="70" name="blogbody" placeholder="Enter blog/review here:">{{blog_body}}</textarea>
+    </label>
+
+    <span class="error">{{body_error}}</span>
+    <br><br>
+
+    <input type="submit" value='Add Entry' />
+</form>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<a href='/index' style='margin-right: 10px;'>Home</a>
+<!-- <a href='/blogs' style='margin-right: 10px;'>Main Blog Page</a> -->
+<a href='/signup'>SignUp</a>
+
+<br><br>
+
+<h1 style='text-align: center; color: #e22b2b;'>Unreasonable Happiness Blogz (Log-In)</h1>
+<p>Don't have an account, create a <a href="/signup">new user</a> account here!</p>
+
+<form action="/login" method="POST">
+    <table>
+        <tr>
+            <td><label for="username">UserName</label></td>
+            <td>
+                <input name="username" type="username" value="{{username }}">
+            </td>
+        </tr>
+        <tr>
+            <td><label for="password">Password</label></td>
+            <td>
+                <input name="password" type="password">
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="Login">
+</form>
+
+{% endblock %}

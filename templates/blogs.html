@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<a href='/index' style='margin-right: 10px;'>Home</a>
+<!-- <a href='/blogs' style='margin-right: 10px;'>Main Blog Page</a> -->
+<a href='/newpost' style='margin-right: 10px;'>Create New Entry</a>
+<a href='/login' style='margin-right: 10px;'>Login</a>
+<a href='/signup'>SignUp</a>
+
+<br><br>
+
+<h1 style="text-align: center; color:#e2d62b;">Unreasonable Happiness Blogz Page</h1>
+
+{% if not myblog %}
+
+<h2>Blog Posts</h2>
+
+<hr />
+
+{% if blogs|length == 0 %}
+<p>No blog posts yet</p>
+{% else %}
+
+{% endif %}
+
+<ul style="list-style: none;">
+
+    {% for blog in blogs %}
+
+    <li><strong><a href='blogs?id={{blog.id}}'>{{blog.name}}</a></strong>
+
+        <br>{{blog.body}}
+    </li>
+
+    {% endfor %}
+
+</ul>
+
+{% endif %}
+
+{% if myblog %}
+
+<h2>{{myblog.name}}</h2>
+<p>{{myblog.body}}</p>
+
+{% endif %}
+
+{% endblock %}
